@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Republish via npm CLI path after Bun publish reported success while package metadata remained unavailable through the public registry.
+
 ## 0.1.0
 
 - Initial OSS package scaffold.

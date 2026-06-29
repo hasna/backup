@@ -1,6 +1,6 @@
 {
   "name": "@hasna/backup",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Local-first backup coverage, verification, restore planning, and AWS backup posture audits for agents and operators.",
   "type": "module",
   "license": "Apache-2.0",

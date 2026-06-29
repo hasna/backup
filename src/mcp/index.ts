@@ -66,7 +66,7 @@ async function handle(request: JsonRpcRequest) {
     return {
       protocolVersion: "2024-11-05",
       capabilities: { tools: {} },
-      serverInfo: { name: "@hasna/backup", version: "0.1.0" }
+      serverInfo: { name: "@hasna/backup", version: "0.1.1" }
     };
   }
   if (request.method === "tools/list") return { tools };
