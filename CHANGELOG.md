@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Add `prepare` so GitHub installs build the CLI and MCP binaries when npm package metadata is unavailable.
+
 ## 0.1.1
 
 - Republish via npm CLI path after Bun publish reported success while package metadata remained unavailable through the public registry.

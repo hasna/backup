@@ -1,6 +1,6 @@
 {
   "name": "@hasna/backup",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Local-first backup coverage, verification, restore planning, and AWS backup posture audits for agents and operators.",
   "type": "module",
   "license": "Apache-2.0",
@@ -32,6 +32,7 @@
     "verify:release": "bun run typecheck && bun test && bun run build",
     "dev:cli": "bun run src/cli/index.ts",
     "dev:mcp": "bun run src/mcp/index.ts",
+    "prepare": "bun run build",
     "prepublishOnly": "bun run verify:release",
     "postinstall": "mkdir -p $HOME/.hasna/backup 2>/dev/null || true"
   },
