@@ -1,0 +1,69 @@
+{
+  "name": "@hasna/backup",
+  "version": "0.1.0",
+  "description": "Local-first backup coverage, verification, restore planning, and AWS backup posture audits for agents and operators.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "backup": "dist/cli/index.js",
+    "backup-mcp": "dist/mcp/index.js"
+  },
+  "files": [
+    "dist",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && bun build src/cli/index.ts --outdir dist/cli --target bun && bun build src/mcp/index.ts --outdir dist/mcp --target bun && bun build src/index.ts src/runtime.ts src/config.ts src/backup.ts src/inventory.ts src/aws.ts --outdir dist --target bun && tsc -p tsconfig.build.json --emitDeclarationOnly --outDir dist",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "verify:release": "bun run typecheck && bun test && bun run build",
+    "dev:cli": "bun run src/cli/index.ts",
+    "dev:mcp": "bun run src/mcp/index.ts",
+    "prepublishOnly": "bun run verify:release",
+    "postinstall": "mkdir -p $HOME/.hasna/backup 2>/dev/null || true"
+  },
+  "keywords": [
+    "backup",
+    "restore",
+    "s3",
+    "aws-backup",
+    "rds",
+    "mcp",
+    "cli",
+    "agents",
+    "hasna"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasna/backup.git"
+  },
+  "homepage": "https://github.com/hasna/backup",
+  "bugs": {
+    "url": "https://github.com/hasna/backup/issues"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^20.14.0",
+    "typescript": "^5.7.3"
+  }
+}
